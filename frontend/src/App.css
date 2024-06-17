@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
   width: 100%;
   margin: 0;
@@ -31,15 +35,6 @@ Canvas {
   background-color: lightblue;
   margin: 0;
   padding: 0;
-}
-
-.item2 {
-  flex: 1 0 20%;
-  /* Take up 20% of the width */
-  background-color: lightgreen;
-  margin: 0;
-  padding: 0;
-  position: sticky;
 }
 
 @media (max-width: 600px) {
