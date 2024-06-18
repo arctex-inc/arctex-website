@@ -9,7 +9,8 @@
 }
 
 Canvas {
-  width: 100%;
+  /* made the width 110 instead of 100 to get rid of bottom blank white space  */
+  width: 110%;
   margin: 0;
   padding: 0;
 }
@@ -17,16 +18,6 @@ Canvas {
 * {
   margin: 0;
   padding: 0;
-}
-
-.container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-  /* Allow items to wrap to the next line */
 }
 
 .item1 {
