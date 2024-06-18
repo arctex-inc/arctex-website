@@ -29,15 +29,33 @@ function App() {
         </mesh>
         <MapControls />
       </Canvas>
-      <section className='item2'>
-        <h1>blah blah blah</h1>
-        <p>blah blah</p>
+      {/* Side-box*/}
+      <div className="hidden md:block absolute top-0 right-0 h-full w-1/4 bg-white">
+        <h4 className="text-center font-bold">
+          Side Box
+        </h4>
+        <p className="text-2xl">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div className="md:hidden absolute bottom-0 inset-x-0 bg-white h-1/4">
+        <h4 className="text-center font-bold">
+          Side Box Mobile
+        </h4>
+        <p className="text-2xl">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
         <Link to="/shopping">
           <button className="shopping-button">Go to Shopping Page</button>
         </Link>
-      </section>
+      </div>
     </>
-    // </div>
   )
 }
 
