@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { Canvas } from "@react-three/fiber"
+import { Link } from 'react-router-dom';
 import './App.css'
 import { PerspectiveCamera, MapControls } from '@react-three/drei'
 
@@ -10,7 +11,7 @@ function App() {
     // <div className='container'>
     <>
       <Canvas className='item1'>
-        <ambientLight intensity={2} /> 
+        <ambientLight intensity={2} />
         {/* not sure what the default is for ambient light but you need an ambient light */}
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
         <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]}>
@@ -50,6 +51,9 @@ function App() {
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
+        <Link to="/shopping">
+          <button className="shopping-button">Go to Shopping Page</button>
+        </Link>
       </div>
     </>
   )
