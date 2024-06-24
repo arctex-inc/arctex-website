@@ -1,51 +1,72 @@
-import { useRef, useState } from 'react'
-import { Canvas } from "@react-three/fiber"
+import { useRef, useState } from 'react';
+import { Canvas } from "@react-three/fiber";
 import { Link } from 'react-router-dom';
-import './App.css'
-import { PerspectiveCamera, MapControls } from '@react-three/drei'
+import './App.css';
+import { PerspectiveCamera, MapControls, Outlines } from '@react-three/drei';
 import TextBoxContent from './components/TextboxContent.jsx';
 
 function App() {
-  const [hovered, hover] = useState(false)
+  const [hoveredObject, setHoveredObject] = useState(null);
+  const [clickedObject, setClickedObject] = useState(null);
+
+  const handlePointerOver = (object) => {
+    setHoveredObject(object);
+  };
+
+  const handlePointerOut = () => {
+    setHoveredObject(null);
+  };
+
+  const handleClick = (object) => {
+    setClickedObject(clickedObject === object ? null : object);
+  };
 
   return (
     <div className='overflow-hidden h-full'>
       {/* can't put any non three.js code within the canvas or it'll break */}
       <Canvas className='item1 overflow-hidden'>
         <ambientLight intensity={2} />
-        {/* not sure what the default is for ambient light but you need an ambient light */}
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-        <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]}>
-        </PerspectiveCamera>
+        <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]} />
 
-        {/* <camera angle={15} /> */}
-        {/* three js uses radians for rotation */}
-        <mesh rotation={[0, 1, 0]}>
+        {/* First mesh with conditional white outline */}
+        <mesh
+          rotation={[0, 1, 0]}
+          onPointerOver={() => handlePointerOver('box1')}
+          onPointerOut={handlePointerOut}
+          onClick={() => handleClick('box1')}
+        >
           <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+          <meshStandardMaterial color='orange' />
+          {(hoveredObject === 'box1' || clickedObject === 'box1') && <Outlines color="white" thickness={0.1} />}
         </mesh>
-        <mesh rotation={[0, 0, 0]} position={[0, -2, 0]}>
+
+        {/* Second mesh with conditional white outline */}
+        <mesh
+          rotation={[0, 0, 0]}
+          position={[0, -2, 0]}
+          onPointerOver={() => handlePointerOver('box2')}
+          onPointerOut={handlePointerOut}
+          onClick={() => handleClick('box2')}
+        >
           <boxGeometry args={[10, 1, 10]} />
-          <meshStandardMaterial color={hovered ? 'hotpink' : 'green'} />
+          <meshStandardMaterial color='green' />
+          {(hoveredObject === 'box2' || clickedObject === 'box2') && <Outlines color="white" thickness={0.1} />}
         </mesh>
+
         <MapControls />
       </Canvas>
-      {/* <div className='' >
-        <Link to="/shopping">
-          <button className="shopping-button">Go to Shopping Page</button>
-        </Link>
-      </div> */}
 
-      {/* Side-box on desktop*/}
+      {/* Side-box on desktop */}
       <div className="hidden md:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white m-5 rounded-lg">
         <TextBoxContent />
-        {/* Bottom textbox on mobile */}
       </div>
+      {/* Bottom textbox on mobile */}
       <div className="md:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
         <TextBoxContent />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
