@@ -1,0 +1,24 @@
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+/* SplashPage fades out to black */
+  @keyframes custom-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  .custom-fade-out {
+    animation-name: custom-fade-out;
+    animation-duration: 3s;
+  }
