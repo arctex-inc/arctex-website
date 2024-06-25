@@ -1,8 +1,7 @@
 import { React, useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import "animate.css"
-import "./splash.css"
-import { logoPath, tagPath } from "./assets/SVGPaths"
+import "../splash.css"
+import { logoPath, tagPath } from "../assets/SVGPaths.js"
 
 const logoVariants = {
   hidden: {

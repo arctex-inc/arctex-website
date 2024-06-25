@@ -47,3 +47,8 @@ Canvas {
   animation-name: custom-fade-in;
   animation-duration: 2s;
 }
+
+/* Makes the Splash --> Homepage transition less jarring */
+body {
+  transition: background-color 1.6s ease;
+}

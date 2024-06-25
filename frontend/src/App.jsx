@@ -1,13 +1,15 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Canvas } from "@react-three/fiber";
 import { Link } from 'react-router-dom';
 import './App.css';
 import { PerspectiveCamera, MapControls, Outlines } from '@react-three/drei';
 import TextBoxContent from './components/TextboxContent.jsx';
+import SplashPage from './components/SplashPage.jsx';
 
 function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
   const [clickedObject, setClickedObject] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handlePointerOver = (object) => {
     setHoveredObject(object);
@@ -21,10 +23,30 @@ function App() {
     setClickedObject(clickedObject === object ? null : object);
   };
 
+  useEffect(() => {
+    const splashTimer = setTimeout(() => {
+      setIsLoading(false); 
+    }, 7500); // Controls how long the splash page persists
+    const bgColorTimer = setTimeout(() => {
+      document.body.style.backgroundColor = "lightblue"; 
+    }, 7505); // Script in index.html renders the background black for the fade to black. This sets it to light blue to remove dead space around canvas
+  
+    return () => {
+      clearTimeout(splashTimer);
+      clearTimeout(bgColorTimer);
+    };
+  }, []);
+
+  
+
   return (
-    <div className='overflow-hidden h-full'>
+    <div className='container'>
+      {isLoading ? (
+        <SplashPage />) : (
+
+      <div className={`overflow-hidden h-full ${isLoading ? "" : "custom-fade-in"}`}>
       {/* can't put any non three.js code within the canvas or it'll break */}
-      <Canvas className='item1 overflow-hidden'>
+      <Canvas className="item1 overflow-hidden">
         <ambientLight intensity={2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
         <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]} />
@@ -65,6 +87,8 @@ function App() {
       <div className="md:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
         <TextBoxContent />
       </div>
+    </div>
+        )}
     </div>
   );
 }
