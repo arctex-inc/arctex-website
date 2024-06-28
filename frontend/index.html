@@ -9,5 +9,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+<!-- If you see a black screen between pages, this script vvv is doing that -->
+    <script type="text/javascript">
+      window.onload = function () {
+          setTimeout(function() {
+              document.body.style.backgroundColor = "black";        
+          }, 200);
+      }
+  </script>
+  
   </body>
 </html>

@@ -36,3 +36,19 @@ Canvas {
     /* Take up 100% width when screen size is small */
   }
 }
+
+/* App.jsx fades in from black */
+@keyframes custom-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.custom-fade-in {
+  animation-name: custom-fade-in;
+  animation-duration: 2s;
+}
+
+/* Makes the Splash --> Homepage transition less jarring */
+body {
+  transition: background-color 1.6s ease;
+}
