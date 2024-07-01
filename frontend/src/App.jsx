@@ -5,6 +5,7 @@ import './App.css';
 import { PerspectiveCamera, MapControls, Outlines } from '@react-three/drei';
 import TextBoxContent from './components/TextboxContent.jsx';
 import SplashPage from './components/SplashPage.jsx';
+import NavBar from './components/NavBar.jsx';
 
 function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
@@ -26,7 +27,7 @@ function App() {
   useEffect(() => {
     const splashTimer = setTimeout(() => {
       setIsLoading(false); 
-    }, 7500); // Controls how long the splash page persists
+    }, 7500); // Controls how long the splash page persists (Set to 7500)
     const bgColorTimer = setTimeout(() => {
       document.body.style.backgroundColor = "lightblue"; 
     }, 7505); // Script in index.html renders the background black for the fade to black. This sets it to light blue to remove dead space around canvas
@@ -46,6 +47,8 @@ function App() {
 
       <div className={`overflow-hidden h-full ${isLoading ? "" : "custom-fade-in"}`}>
       {/* can't put any non three.js code within the canvas or it'll break */}
+
+      <NavBar />
       <Canvas className="item1 overflow-hidden">
         <ambientLight intensity={2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
