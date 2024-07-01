@@ -25,30 +25,40 @@ function App() {
 
   useEffect(() => {
     const splashTimer = setTimeout(() => {
-      setIsLoading(false); 
+      setIsLoading(false);
     }, 7500); // Controls how long the splash page persists
     const bgColorTimer = setTimeout(() => {
-      document.body.style.backgroundColor = "lightblue"; 
+      document.body.style.backgroundColor = "lightblue";
     }, 7505); // Script in index.html renders the background black for the fade to black. This sets it to light blue to remove dead space around canvas
-  
+
     return () => {
       clearTimeout(splashTimer);
       clearTimeout(bgColorTimer);
     };
   }, []);
 
-  
-
   return (
     <div className='container'>
       {isLoading ? (
         <SplashPage />) : (
-
       <div className={`overflow-hidden h-full ${isLoading ? "" : "custom-fade-in"}`}>
       {/* can't put any non three.js code within the canvas or it'll break */}
-      <Canvas className="item1 overflow-hidden">
-        <ambientLight intensity={2} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
+      <Canvas className="item1 overflow-hidden" shadows>
+        <ambientLight intensity={0.8} color="#ffffff" />
+        <directionalLight
+          position={[10, 10, 5]}
+          intensity={1.5}
+          castShadow
+          shadow-mapSize-width={2048}
+          shadow-mapSize-height={2048}
+          shadow-camera-near={0.1}
+          shadow-camera-far={50}
+          shadow-camera-left={-10}
+          shadow-camera-right={10}
+          shadow-camera-top={10}
+          shadow-camera-bottom={-10}
+        />
+        <hemisphereLight skyColor="#ffffff" groundColor="#444444" intensity={0.6} />
         <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]} />
 
         {/* First mesh with conditional white outline */}
@@ -57,6 +67,8 @@ function App() {
           onPointerOver={() => handlePointerOver('box1')}
           onPointerOut={handlePointerOut}
           onClick={() => handleClick('box1')}
+          castShadow
+          receiveShadow
         >
           <boxGeometry args={[1, 1, 1]} />
           <meshStandardMaterial color='orange' />
@@ -70,6 +82,8 @@ function App() {
           onPointerOver={() => handlePointerOver('box2')}
           onPointerOut={handlePointerOut}
           onClick={() => handleClick('box2')}
+          castShadow
+          receiveShadow
         >
           <boxGeometry args={[10, 1, 10]} />
           <meshStandardMaterial color='green' />
