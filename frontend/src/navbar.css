@@ -1,4 +1,7 @@
 /* Desktop Styles */
+.container {
+    width: 100%;
+}
 .nav-bar {
     height: 8%;
     width: 70%;
@@ -7,7 +10,7 @@
 
 .nav-bar-container {
     display: flex;
-    justify-content: center; /* Center the links container */
+    justify-content: center; 
     align-items: center;
     background-color: transparent; 
     color: #fff; 
@@ -34,7 +37,7 @@
 }
 
 .nav-link:hover {
-    background-color: orange;
+    /* background-color: #f0f0f0; */
     border-radius: 12px;
     font-weight: bold;
     font-size: 25px;
@@ -43,7 +46,7 @@
 
 .nav-link:active {
     color: black;
-    background-color: orangered;
+    /* background-color: grey; */
     border-radius: 12px;
     transition: none;
 }
@@ -57,9 +60,15 @@
 }
 
 .logo {
-    max-height: 170px;
-    max-width: 280px; 
-    transform: translateX(30%);
+    max-height: 187px;
+    max-width: 308px; 
+    /* transform: translateX(30%); */
+}
+
+@media (min-width: 768px) {
+    .logo {
+        transform: translateX(30%);
+    }
 }
 
 
@@ -80,7 +89,7 @@
         align-items: center; 
         position: relative; 
         height: 8%; 
-        width: 140%; 
+        width: 150%; 
     }
 
     .mobile-nav-bar-container {
@@ -108,7 +117,7 @@
 
     .mobile-menu {
         display: block;
-        background-color: orange;
+        background-color: grey;
         padding: 10px;
         position: absolute;
         top: 62%; 
@@ -129,7 +138,7 @@
         display: block;
         padding: 10px 20px;
         color: black;
-        background-color: orangered;
+        background-color: white;
         text-decoration: underline;
     }
 }

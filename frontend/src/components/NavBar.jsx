@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
-import logo from "../assets/NavBar-Logo.png"
+import logo from "../assets/NavBar-Logo-White-NoBG.png"
 
 import "../navbar.css"
 
@@ -42,14 +42,14 @@ function NavBar() {
                     <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
                         {isMobileMenuOpen ? (
                             // Close icon (https://www.tailwindtoolbox.com/icons)
-                            <svg className="h-8 w-8 text-gray-500" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="h-12 w-12 text-gray-500" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="6" y2="18" />
                                 <line x1="6" y1="6" x2="18" y2="18" />
                             </svg>
                         ) : (
                             // Hamburger icon (https://www.tailwindtoolbox.com/icons)
-                            <svg className="h-8 w-8 text-gray-500" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <svg className="h-12 w-12 text-grey-500" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="4" y1="6" x2="20" y2="6" />
                                 <line x1="4" y1="12" x2="20" y2="12" />
