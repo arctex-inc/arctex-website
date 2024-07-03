@@ -1,0 +1,144 @@
+/* Desktop Styles */
+.container {
+    width: 100%;
+}
+.nav-bar {
+    height: 8%;
+    width: 70%;
+    background-color: transparent !important;
+}
+
+.nav-bar-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background-color: transparent; 
+    color: #fff; 
+}
+
+.nav-links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 12px;
+}
+
+.nav-link:hover {
+    /* background-color: #f0f0f0; */
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.nav-link:active {
+    color: black;
+    /* background-color: grey; */
+    border-radius: 12px;
+    transition: none;
+}
+
+.logo-container {
+    margin-right: auto;
+    display: inline-block;
+    flex: 0 0 auto;
+    max-height: 170px;
+    max-width: 280px;
+}
+
+.logo {
+    max-height: 187px;
+    max-width: 308px; 
+    /* transform: translateX(30%); */
+}
+
+@media (min-width: 768px) {
+    .logo {
+        transform: translateX(30%);
+    }
+}
+
+
+
+/* Mobile Styles */
+.mobile-nav {
+    display: none; /* Hide on desktop */
+}
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Hide on mobile */
+    }
+
+    .mobile-nav {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        position: relative; 
+        height: 8%; 
+        width: 150%; 
+    }
+
+    .mobile-nav-bar-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-logo-container {
+        flex: 0 0 auto; 
+    }
+
+    .mobile-menu-toggle {
+        cursor: pointer;
+        padding: 10px;
+        position: absolute; 
+        top: 30%; 
+        right: 5%; 
+        background: transparent;
+    }
+
+    .mobile-menu-icon {
+        width: 25px;
+        height: 3px;
+    }
+
+    .mobile-menu {
+        display: block;
+        background-color: grey;
+        padding: 10px;
+        position: absolute;
+        top: 62%; 
+        right: 8%; 
+        width: 200px; 
+        z-index: 1000; 
+    }
+    
+
+    .mobile-nav-link {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .mobile-nav-link:active {
+        display: block;
+        padding: 10px 20px;
+        color: black;
+        background-color: white;
+        text-decoration: underline;
+    }
+}

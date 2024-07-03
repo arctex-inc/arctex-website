@@ -48,7 +48,7 @@ function SplashPage() {
   useEffect(() => {
     setTimeout(() => {
       setHasLoaded(true);
-    }, 5000); //times the start of the fadeout animation
+    }, 5000); //times the start of the fadeout animation (Set to 5000)
   }, []);
 
   return (
