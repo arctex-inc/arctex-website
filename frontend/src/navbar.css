@@ -38,9 +38,9 @@
 
 .nav-link:hover {
     /* background-color: #f0f0f0; */
-    border-radius: 12px;
+    /* border-radius: 12px; */
     font-weight: bold;
-    font-size: 25px;
+    /* font-size: 25px; */
     text-decoration: underline;
 }
 
@@ -56,18 +56,18 @@
     display: inline-block;
     flex: 0 0 auto;
     max-height: 170px;
-    max-width: 280px;
+    max-width: 200px;
 }
 
 .logo {
     max-height: 187px;
-    max-width: 308px; 
+    max-width: 200px; 
     /* transform: translateX(30%); */
 }
 
 @media (min-width: 768px) {
     .logo {
-        transform: translateX(30%);
+        transform: translateX(10%);
     }
 }
 
@@ -78,10 +78,27 @@
     display: none; /* Hide on desktop */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1360px) {
+    .nav-link {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    font-size: 22px;
+    line-height: 1;
+    border-radius: 12px;
+}
+}
+
+
+@media (max-width: 1024px) {
     .desktop-nav {
         display: none; /* Hide on mobile */
     }
+
+    
 
     .mobile-nav {
         display: flex; 
