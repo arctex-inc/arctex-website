@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   return (
-    <div className='container'>
+    <div className='container overflow-hidden'>
       {isLoading ? (
         <SplashPage />) : (
       <div className={`overflow-hidden h-full ${isLoading ? "" : "custom-fade-in"}`}>
@@ -98,11 +98,11 @@ function App() {
       </Canvas>
 
       {/* Side-box on desktop */}
-      <div className="hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white m-5 rounded-lg">
+      <div className="desktop-sidebox hide-scrollbar hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white rounded-lg">
         <TextBoxContent />
       </div>
       {/* Bottom textbox on mobile */}
-      <div className="lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
+      <div className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
         <TextBoxContent />
       </div>
     </div>
