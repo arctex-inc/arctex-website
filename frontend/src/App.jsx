@@ -11,6 +11,8 @@ function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
   const [clickedObject, setClickedObject] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const mobileTextBoxRef = useRef(null);
+  const desktopTextBoxRef = useRef(null);
 
   const handlePointerOver = (object) => {
     setHoveredObject(object);
@@ -24,6 +26,13 @@ function App() {
     // Check if objectId is a valid box ID
     if (['box1', 'box2', 'box3'].includes(objectId)) {
       setClickedObject(clickedObject === objectId ? null : objectId);
+
+      if (mobileTextBoxRef.current) {
+        mobileTextBoxRef.current.scrollTop = 0;
+      }
+      if (desktopTextBoxRef.current) {
+        desktopTextBoxRef.current.scrollTop = 0;
+      }
     }
   };
 
@@ -38,7 +47,6 @@ function App() {
     const bgColorTimer = setTimeout(() => {
       document.body.style.backgroundColor = "lightblue";
       }, 7505); 
-
     // Script in index.html renders the background black for the fade to black. This sets it to light blue to remove dead space around canvas
 
     return () => {
@@ -139,11 +147,11 @@ function App() {
           </Canvas>
 
           {/* Side-box on desktop */}
-          <div className="desktop-sidebox hide-scrollbar hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white rounded-lg">
+          <div ref={desktopTextBoxRef} className="desktop-sidebox hide-scrollbar hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white rounded-lg">
           <TextBoxContent clickedObjectId={clickedObject} />
           </div>
           {/* Bottom textbox on mobile */}
-          <div className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
+          <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
             <TextBoxContent clickedObjectId={clickedObject} />
           </div>
         </div>
