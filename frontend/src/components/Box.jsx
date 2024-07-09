@@ -1,8 +1,10 @@
 import { useRef } from 'react';
 import { Outlines } from '@react-three/drei';
 
-const Box = ({ position, rotation, color, objectId, handlePointerOver, handlePointerOut, handleClick, hoveredObject, clickedObject }) => {
+function Box({ position, rotation, color, objectId, handlePointerOver, handlePointerOut, handleClick, hoveredObject, clickedObject }) {
+
   return (
+
     <mesh
       position={position}
       rotation={rotation}

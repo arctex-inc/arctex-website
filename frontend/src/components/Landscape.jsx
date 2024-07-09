@@ -1,8 +1,10 @@
 // Landscape.jsx
 import { Outlines } from '@react-three/drei';
 
-const Landscape = ({ position, rotation, handlePointerOver, handlePointerOut, handleClick, hoveredObject, clickedObject }) => {
+function Landscape({ position, rotation, handlePointerOver, handlePointerOut, handleClick, hoveredObject, clickedObject }) {
+
   return (
+    
     <mesh
       rotation={rotation}
       position={position}

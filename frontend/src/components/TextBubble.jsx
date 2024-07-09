@@ -20,7 +20,7 @@ const createSpeechBubbleShape = () => {
 const bubbleShape = createSpeechBubbleShape();
 const extrudeSettings = { depth: 0.2, bevelEnabled: false };
 
-const SpeechBubble = ({ position, text }) => {
+function TextBubble({ position, text }) {
   const groupRef = useRef();
   const { camera } = useThree();
 
@@ -51,4 +51,4 @@ const SpeechBubble = ({ position, text }) => {
   );
 };
 
-export default SpeechBubble;
+export default TextBubble;
