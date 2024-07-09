@@ -90,8 +90,8 @@ function SplashPage() {
           <motion.path
             d={tagPath}
             fill="white"
-            stroke="white"
-            strokeWidth="1.25"
+            // stroke="white"
+            // strokeWidth="1.25"
             variants={tagVariants}
           />
         </motion.svg> {/* Tag SVG end */}
