@@ -2,38 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  width: 100%;
+html, body, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-.desktop-sidebox {
-  height: 94vh;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
-  margin-left: 3vh;
-  margin-right: 3vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  
- 
+#root {
+  width: 100%;
 }
 
-
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+.container, .home-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
 }
 
 Canvas {
-  /* made the width 110 instead of 100 to get rid of bottom blank white space  */
-  width: 110%;
+  width: 100%;
+  height: 92%; 
   margin: 0;
   padding: 0;
 }
@@ -45,11 +34,21 @@ Canvas {
 
 .item1 {
   flex: 1 0 80%;
-  /* Take up 80% of the width */
   background-color: lightblue;
   margin: 0;
   padding: 0;
 }
+
+.desktop-sidebox {
+  height: 94vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 
 @media (max-width: 600px) {
 
@@ -68,11 +67,10 @@ Canvas {
 
 .custom-fade-in {
   animation-name: custom-fade-in;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
 
-/* Makes the Splash --> Homepage transition less jarring */
-body {
-  transition: background-color 1.6s ease;
-  overflow-y: hidden !important; 
+.home-container.custom-fade-in {
+  visibility: visible;
+  opacity: 1;
 }
