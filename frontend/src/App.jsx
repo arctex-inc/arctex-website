@@ -37,6 +37,9 @@ function App() {
   };
 
   const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
+  const { scene: island } = useGLTF('./models/ConeyIsland.glb');
+  const { scene: treeBig } = useGLTF('./models/treeBig.glb');
+  const { scene: treeSmall } = useGLTF('./models/treeSmall.glb');
 
   useEffect(() => {
     const splashTimer = setTimeout(() => {
@@ -127,22 +130,24 @@ function App() {
             </mesh>
 
 
-            {/* Landscape with conditional white outline */}
+            {/* Landscape without conditional white outline */}
             <mesh
               rotation={[0, 0, 0]}
               position={[0, -2, 0]}
-              onPointerOver={() => handlePointerOver('landscape')}
-              onPointerOut={handlePointerOut}
-              onClick={() => handleClick('landscape')}
+              // onPointerOver={() => handlePointerOver('landscape')}
+              // onPointerOut={handlePointerOut}
+              // onClick={() => handleClick('landscape')}
               castShadow
               receiveShadow
             >
               <boxGeometry args={[10, 1, 10]} />
               <meshStandardMaterial color='green' />
-              {(hoveredObject === 'landscape' || clickedObject === 'landscape') && <Outlines color="white" thickness={0.1} />}
+              {/* {(hoveredObject === 'landscape' || clickedObject === 'landscape') && <Outlines color="white" thickness={0.1} />} */}
             </mesh>
-
-            <primitive object={wizardHats} scale={1.0} position={[0, -1, 5]}/>
+            {/* position = [x, y (up/down), z] */}
+            <primitive object={island} scale={.5} position={[0, -1, 5]}/>
+            <primitive object={treeBig} scale={.25} position={[1, -1, -5]}/>
+            <primitive object={treeSmall} scale={.25} position={[2, -1, 0]}/>
             <MapControls />
           </Canvas>
 
