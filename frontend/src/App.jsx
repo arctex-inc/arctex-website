@@ -10,7 +10,8 @@ import NavBar from './components/NavBar.jsx';
 function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
   const [clickedObject, setClickedObject] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
+  const [startFade, setStartFade] = useState(true);
   const mobileTextBoxRef = useRef(null);
   const desktopTextBoxRef = useRef(null);
 
@@ -41,13 +42,12 @@ function App() {
   useEffect(() => {
     const splashTimer = setTimeout(() => {
 
-      setIsLoading(false);
-    }, 7500); // Controls how long the splash page persists (Set to 7500)
+      setShowSplash(false);
+    }, 5000); // Controls how long the splash page persists (Set to 5000)
 
     const bgColorTimer = setTimeout(() => {
-      document.body.style.backgroundColor = "lightblue";
-      }, 7505); 
-    // Script in index.html renders the background black for the fade to black. This sets it to light blue to remove dead space around canvas
+      setStartFade(false);
+      }, 3000); // Controls when the HOME PAGE FADE IN starts (Set to 3000)
 
     return () => {
       clearTimeout(splashTimer);
@@ -57,9 +57,8 @@ function App() {
 
   return (
     <div className='container overflow-hidden'>
-      {isLoading ? (
-        <SplashPage />) : (
-        <div className={`overflow-hidden h-full ${isLoading ? "" : "custom-fade-in"}`}>
+        {showSplash && <SplashPage />} 
+        <div className={`home-container overflow-hidden h-full ${startFade ? "hidden" : "custom-fade-in"}`}>
           {/* can't put any non three.js code within the canvas or it'll break */}
           <NavBar />
           <Canvas className="item1 overflow-hidden" shadows>
@@ -155,7 +154,6 @@ function App() {
             <TextBoxContent clickedObjectId={clickedObject} />
           </div>
         </div>
-      )}
     </div>
   );
 }

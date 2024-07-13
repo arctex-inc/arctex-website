@@ -9,14 +9,14 @@ const logoVariants = {
     fill: "rgba(255, 255, 255, 0)",
   },
   visible: {
-    pathLength: 1,
+    pathLength: 2,
     transition: {
-      duration: 4,
+      duration: 3,
       ease: "easeIn",
       fill: {
-        duration: 2,
+        duration: 1.5,
         ease: "easeIn",
-        delay: 2,
+        delay: 1,
       }
     },
     fill: "rgba(255, 255, 255, 1)",
@@ -35,8 +35,8 @@ const tagVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 2,
-      duration: 1,
+      delay: .5,
+      duration: 1.5,
       ease: "easeIn",
     },
   },
@@ -48,14 +48,12 @@ function SplashPage() {
   useEffect(() => {
     setTimeout(() => {
       setHasLoaded(true);
-    }, 5000); //times the start of the fadeout animation (Set to 5000)
+    }, 3000); //times the start of SPLASH PAGE FADE OUT (Set to 3000)
   }, []);
 
   return (
 
-    <div
-      style={{ backgroundColor: 'black', }}
-      className={hasLoaded ? "custom-fade-out" : ""}>
+<div className={`splash-container ${hasLoaded ? "custom-fade-out" : ""}`}>
       <div className="loader-container">
         
         <motion.svg // Logo SVG
