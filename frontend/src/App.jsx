@@ -25,7 +25,7 @@ function App() {
   };
 
   const handleClick = (objectId) => {
-    if (['box1', 'box2', 'box3'].includes(objectId)) {
+    if (validBoxIds.includes(objectId)) {
       setClickedObject(clickedObject === objectId ? null : objectId);
 
       if (mobileTextBoxRef.current) {
@@ -54,13 +54,27 @@ function App() {
     };
   }, []);
 
+  // const boxPositions = [
+  //   [0, 0, 0],
+  //   [3, 0, 2.5],
+  //   [-3, 0, 2.5]
+  // ];
+
+  
   const boxPositions = [
+    [-3, 0, -3],
+    [0, 0, -3],
+    [3, 0, -3],
+    [-3, 0, 0],
     [0, 0, 0],
-    [3, 0, 2.5],
-    [-3, 0, 2.5]
+    [3, 0, 0],
+    [-3, 0, 3],
+    [0, 0, 3],
+    [3, 0, 3],
   ];
 
   const textBubblePositions = boxPositions.map(pos => [pos[0] - .25, pos[1] + 0.75, pos[2]]);
+  const validBoxIds = boxPositions.map((_, index) => `box${index + 1}`);
 
   return (
     <div className='container overflow-hidden'>
@@ -87,20 +101,21 @@ function App() {
             <hemisphereLight skyColor="#ffffff" groundColor="#444444" intensity={0.6} />
             <PerspectiveCamera makeDefault fov={75} position={[0, 5, 5]} rotation={[-1, 0, 0]} />
 
-            {['box1', 'box2', 'box3'].map((boxId, index) => (
-              <Box
-                key={boxId}
-                position={boxPositions[index]}
-                rotation={[0, 1, 0]}
-                color='orange'
-                objectId={boxId}
-                handlePointerOver={handlePointerOver}
-                handlePointerOut={handlePointerOut}
-                handleClick={handleClick}
-                hoveredObject={hoveredObject}
-                clickedObject={clickedObject}
-              />
-            ))}
+            {boxPositions.map((position, index) => (
+            <Box
+              key={`box${index + 1}`}
+              position={position}
+              rotation={[0, 1, 0]}
+              color='orange'
+              objectId={`box${index + 1}`}
+              handlePointerOver={handlePointerOver}
+              handlePointerOut={handlePointerOut}
+              handleClick={handleClick}
+              hoveredObject={hoveredObject}
+              clickedObject={clickedObject}
+            />
+          ))}
+
 
             <Landscape
               rotation={[0, 0, 0]}
