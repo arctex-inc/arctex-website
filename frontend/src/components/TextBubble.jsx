@@ -1,43 +1,51 @@
-// SpeechBubble.jsx
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Shape, ExtrudeGeometry } from 'three';
 import { Text } from '@react-three/drei';
-
-const createSpeechBubbleShape = () => {
-  const shape = new Shape();
-  
-  // Left side
-  shape.moveTo(-0.8, 0.4); // Top-left corner
-  shape.quadraticCurveTo(-1, 0.4, -1, 0.2); // Top-left rounded corner
-  shape.lineTo(-1, -0.2); // Left side
-  shape.quadraticCurveTo(-1, -0.4, -0.8, -0.4); // Bottom-left rounded corner
-  shape.lineTo(-0.2, -0.4); // Bottom-left side
-  
-  // Shortened tal
-  shape.lineTo(0, -0.8); // Tail point
-  shape.lineTo(0.2, -0.4); // Bottom-right side
-  
-  // Right side
-  shape.lineTo(0.8, -0.4); // Bottom side
-  shape.quadraticCurveTo(1, -0.4, 1, -0.2); // Bottom-right rounded corner
-  shape.lineTo(1, 0.2); // Right side
-  shape.quadraticCurveTo(1, 0.4, 0.8, 0.4); // Top-right rounded corner
-  shape.lineTo(-0.8, 0.4); // Top side
-
-  return shape;
-};
-
-
-
-
-
-const bubbleShape = createSpeechBubbleShape();
-const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
+import { Box3, Vector3, ExtrudeGeometry, Mesh } from 'three';
+import text_bubble from "../assets/discord_textbubble.svg";
 
 function TextBubble({ position, text }) {
   const groupRef = useRef();
   const { camera } = useThree();
+  const [bubbleGeometry, setBubbleGeometry] = useState(null);
+
+  useEffect(() => {
+    // Load the SVG and create the shape
+    const loader = new SVGLoader();
+    loader.load(
+      text_bubble,
+      (data) => {
+        const paths = data.paths;
+        if (paths.length === 0) {
+          console.error("No paths found in the SVG file.");
+          return;
+        }
+        const shapes = paths.flatMap((path) => path.toShapes(true));
+        if (shapes.length === 0) {
+          console.error("No shapes created from the SVG paths.");
+          return;
+        }
+
+        // Create an extrude geometry from the shape
+        const shape = shapes[0];
+        const extrudeSettings = { depth: 0.2, bevelEnabled: false };
+        const geometry = new ExtrudeGeometry(shape, extrudeSettings);
+
+        // Calculate the bounding box and center the geometry
+        const boundingBox = new Box3().setFromObject(new Mesh(geometry));
+        const center = new Vector3();
+        boundingBox.getCenter(center);
+        geometry.translate(-center.x, -center.y, -center.z);
+
+        setBubbleGeometry(geometry);
+      },
+      undefined,
+      (error) => {
+        console.error("Error loading SVG:", error);
+      }
+    );
+  }, []);
 
   useFrame(() => {
     if (groupRef.current) {
@@ -45,16 +53,19 @@ function TextBubble({ position, text }) {
     }
   });
 
+  if (!bubbleGeometry) {
+    return null; // Return null or a loading indicator while the geometry is loading
+  }
+
   return (
     <group ref={groupRef} position={position}>
       {/* Main bubble */}
-      <mesh position={[.25, .75, 0]}>
-        <extrudeGeometry args={[bubbleShape, extrudeSettings]} />
+      <mesh position={[0, 0, 0]} scale={0.015} geometry={bubbleGeometry}>
         <meshBasicMaterial color="white" />
       </mesh>
       {/* Text */}
       <Text
-        position={[.25, 0.75, 0.22]}
+        position={[0, .125, 0.22]}
         fontSize={0.2}
         color="black"
         anchorX="center"
@@ -64,6 +75,6 @@ function TextBubble({ position, text }) {
       </Text>
     </group>
   );
-};
+}
 
 export default TextBubble;

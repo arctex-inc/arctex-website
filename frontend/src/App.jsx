@@ -73,7 +73,7 @@ function App() {
     [3, 0, 3],
   ];
 
-  const textBubblePositions = boxPositions.map(pos => [pos[0] - .25, pos[1] + 0.75, pos[2]]);
+  const textBubblePositions = boxPositions.map(pos => [pos[0], pos[1] + 1, pos[2]]);
   const validBoxIds = boxPositions.map((_, index) => `box${index + 1}`);
 
   return (
