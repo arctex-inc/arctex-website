@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className='container overflow-hidden'>
-        {showSplash && <SplashPage />} 
+        {showSplash && <SplashPage />}
         <div className={`home-container overflow-hidden h-full ${startFade ? "hidden" : "custom-fade-in"}`}>
           {/* can't put any non three.js code within the canvas or it'll break */}
           <NavBar />
@@ -142,7 +142,14 @@ function App() {
             </mesh>
 
             <primitive object={wizardHats} scale={1.0} position={[0, -1, 5]}/>
-            <MapControls />
+            <MapControls
+            minDistance={2}
+            maxDistance={8} // max zoom out for scroll wheel
+            minAzimuthAngle={-Math.PI / 4} // Limiting the left-right panning for right clicking
+            maxAzimuthAngle={Math.PI / 4} // Limiting the left-right panning for right clicking
+            minPolarAngle={Math.PI / 6} // Limiting the up-down panning for right clicking
+            maxPolarAngle={Math.PI / 2} // Limiting the up-down panning for right clicking
+            />
           </Canvas>
 
           {/* Side-box on desktop */}
