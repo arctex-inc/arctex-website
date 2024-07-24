@@ -37,7 +37,7 @@ function App() {
   };
 
   const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
-  const { scene: island } = useGLTF('./models/ConeyIsland.glb');
+  const { scene: island } = useGLTF('./models/island.glb');
   const { scene: treeBig } = useGLTF('./models/treeBig.glb');
   const { scene: treeSmall } = useGLTF('./models/treeSmall.glb');
 
@@ -145,9 +145,12 @@ function App() {
               {/* {(hoveredObject === 'landscape' || clickedObject === 'landscape') && <Outlines color="white" thickness={0.1} />} */}
             </mesh>
             {/* position = [x, y (up/down), z] */}
-            <primitive object={island} scale={.5} position={[0, -1, 5]}/>
-            <primitive object={treeBig} scale={.25} position={[1, -1, -5]}/>
-            <primitive object={treeSmall} scale={.25} position={[2, -1, 0]}/>
+            <primitive object={island} scale={.2} position={[0, -1, 0]} rotation={[0, 10, 0]} castShadow
+              receiveShadow/>
+            <primitive object={treeBig} scale={.25} position={[1, -1, -5]} castShadow
+              receiveShadow/>
+            <primitive object={treeSmall} scale={.25} position={[2, -1, 0]} castShadow
+              receiveShadow/>
             <MapControls />
           </Canvas>
 
