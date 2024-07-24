@@ -141,14 +141,14 @@ function App() {
               {(hoveredObject === 'landscape' || clickedObject === 'landscape') && <Outlines color="white" thickness={0.1} />}
             </mesh>
 
-            <primitive object={wizardHats} scale={1.0} position={[0, -1, 5]}/>
+            <primitive object={wizardHats} scale={1.0} position={[0, -1, 5]} />
             <MapControls
             minDistance={2}
             maxDistance={8} // max zoom out for scroll wheel
-            minAzimuthAngle={-Math.PI / 4} // Limiting the left-right panning for right clicking
-            maxAzimuthAngle={Math.PI / 4} // Limiting the left-right panning for right clicking
-            minPolarAngle={Math.PI / 6} // Limiting the up-down panning for right clicking
-            maxPolarAngle={Math.PI / 2} // Limiting the up-down panning for right clicking
+            minAzimuthAngle={0} // Limiting the left-right panning for right clicking
+            maxAzimuthAngle={0} // Limiting the left-right panning for right clicking
+            minPolarAngle={Math.PI / 4} // Limiting the up-down panning for right clicking
+            maxPolarAngle={Math.PI / 4} // Limiting the up-down panning for right clicking
             />
           </Canvas>
 
