@@ -55,6 +55,16 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const canvas = document.querySelector('canvas');
+      if (canvas) {
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+      }
+    }
+  });
+
   return (
     <div className='container overflow-hidden'>
       {isLoading ? (

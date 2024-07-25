@@ -9,6 +9,13 @@
   overflow-x: hidden;
 }
 
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling */
+}
+
 .desktop-sidebox {
   height: 94vh;
   margin-top: 3vh;
@@ -17,10 +24,8 @@
   margin-right: 3vh;
   overflow-x: hidden;
   overflow-y: auto;
-  
  
 }
-
 
 .hide-scrollbar {
   -ms-overflow-style: none;  /* Internet Explorer 10+ */

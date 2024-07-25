@@ -159,3 +159,14 @@
         text-decoration: underline;
     }
 }
+
+/* Adjustments for specific screen width (1024x767) to bring menu out from behind side text */
+@media (width: 1024px) and (height: 767px) {
+    .mobile-menu-toggle {
+        right: 40%;
+    }
+
+    .mobile-menu {
+        right: 40%; 
+    }
+}
