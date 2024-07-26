@@ -40,7 +40,7 @@ const ShoppingPage = () => {
         ))}
       </div>
       <Link to="/">
-        <button className="back-button">Back to Home</button>
+        <button className="back-button">Home</button>
       </Link>
     </div>
   );

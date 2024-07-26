@@ -25,7 +25,7 @@ function NavBar() {
 
                     <div className="nav-links-container">
                         <NavLink exact to="/" className="nav-link">Home</NavLink>
-                        <NavLink exact to="/" className="nav-link">Products</NavLink>
+                        <NavLink exact to="/shopping" className="nav-link">Products</NavLink>
                         <NavLink exact to="/" className="nav-link">Services</NavLink>
                         <NavLink exact to="/contact" className="nav-link">Contact Us</NavLink>
                     </div>
