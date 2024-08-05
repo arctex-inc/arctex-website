@@ -1,5 +1,5 @@
 .nav-bar {
-    position: relative;
+    position: absolute;
     z-index: 100; /* Ensure the nav bar is above the canvas but below the splash*/
     height: 8%; 
     width: 70%;
@@ -15,6 +15,7 @@
   }
   
   .nav-links-container {
+    padding-right: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,6 +57,7 @@
   .logo {
     max-height: 187px;
     max-width: 200px;
+    padding-left: 10px;
   }
   
   .hide-scrollbar {
@@ -72,11 +74,22 @@
     display: none; /* Hide on desktop */
   }
   
-  @media (min-width: 768px) {
-    .logo {
-      transform: translateX(10%);
+  @media (max-width: 1280px){
+    .nav-link {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
   }
-}
+
+  @media (max-width: 1100px){
+    .nav-link {
+      padding: 5px 5px;
+    }
+
+    .nav-links-container {
+      padding-right: 75px;
+    }
+  }
   
   @media (max-width: 1024px) {
     .desktop-nav {
@@ -88,6 +101,7 @@
       justify-content: space-between;
       align-items: center;
       position: relative;
+      /* move down by a couple pixels */
       height: 8%;
       width: 150%;
     }
@@ -121,7 +135,7 @@
       background-color: grey;
       padding: 10px;
       position: absolute;
-      margin-top: 5%;
+      margin-top: 10%;
       top: 62%;
       right: 12%;
       width: 200px;
@@ -135,10 +149,18 @@
       text-decoration: none;
     }
   
+    .mobile-nav-link:hover {
+      display: block;
+      padding: 10px 20px;
+      color: rgb(88, 88, 88);
+      background-color: white;
+      text-decoration: underline;
+    }
+
     .mobile-nav-link:active {
       display: block;
       padding: 10px 20px;
-      color: black;
+      color: rgb(88, 88, 88);
       background-color: white;
       text-decoration: underline;
     }
