@@ -40,15 +40,24 @@ function App() {
 
   const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
 
+  // Traverse the GLTF scene and set castShadow and receiveShadow
+  useEffect(() => {
+    wizardHats.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }, [wizardHats]);
+
   useEffect(() => {
     const splashTimer = setTimeout(() => {
-
       setShowSplash(false);
     }, 5000); // Controls how long the splash page persists (Set to 5000)
 
     const bgColorTimer = setTimeout(() => {
       setStartFade(false);
-      }, 3000); // Controls when the HOME PAGE FADE IN starts (Set to 3000)
+    }, 3000); // Controls when the HOME PAGE FADE IN starts (Set to 3000)
 
     return () => {
       clearTimeout(splashTimer);
@@ -151,18 +160,18 @@ function App() {
             maxAzimuthAngle={0} // Limiting the left-right panning for right clicking
             minPolarAngle={Math.PI / 4} // Limiting the up-down panning for right clicking
             maxPolarAngle={Math.PI / 4} // Limiting the up-down panning for right clicking
-            />
-          </Canvas>
+          />
+        </Canvas>
 
-          {/* Side-box on desktop */}
-          <div ref={desktopTextBoxRef} className="desktop-sidebox hide-scrollbar hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white rounded-lg">
+        {/* Side-box on desktop */}
+        <div ref={desktopTextBoxRef} className="desktop-sidebox hide-scrollbar hidden lg:block absolute top-0 right-0 h-full w-1/3 overflow-scroll bg-white rounded-lg">
           <TextBoxContent clickedObjectId={clickedObject} />
-          </div>
-          {/* Bottom textbox on mobile */}
-          <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/3 overflow-scroll rounded-t-lg">
-            <TextBoxContent clickedObjectId={clickedObject} />
-          </div>
         </div>
+        {/* Bottom textbox on mobile */}
+        <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
+          <TextBoxContent clickedObjectId={clickedObject} />
+        </div>
+      </div>
     </div>
   );
 }
