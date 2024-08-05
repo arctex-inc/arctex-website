@@ -13,19 +13,14 @@ html, body, #root {
   width: 100%;
 }
 
-.container, .home-container {
+.home-container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: lightblue;
+  background-color: black;
 }
+/* when you refresh the screen it'll be black and not a white flashbang */
 
-Canvas {
-  width: 100%;
-  height: 92%; 
-  margin: 0;
-  padding: 0;
-}
 
 * {
   margin: 0;
@@ -33,8 +28,8 @@ Canvas {
 }
 
 .item1 {
-  flex: 1 0 80%;
-  background-color: lightblue;
+  flex: 1 0 100%;
+  /* background-color: lightblue; */
   margin: 0;
   padding: 0;
 }
