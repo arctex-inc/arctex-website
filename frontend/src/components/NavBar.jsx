@@ -13,7 +13,7 @@ function NavBar() {
 
     return (
 
-        <nav className="nav-bar">
+        <nav className="nav-bar select-none">
             {/* Desktop */}
             <div className="desktop-nav">
 

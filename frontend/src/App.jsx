@@ -6,6 +6,7 @@ import { PerspectiveCamera, MapControls, Outlines, useGLTF } from '@react-three/
 import TextBoxContent from './components/TextboxContent.jsx';
 import SplashPage from './components/SplashPage.jsx';
 import NavBar from './components/NavBar.jsx';
+import { Environment } from '@react-three/drei'
 
 function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
@@ -56,12 +57,13 @@ function App() {
   }, []);
 
   return (
-    <div className='container overflow-hidden'>
+    <div className='h-full overflow-hidden'>
         {showSplash && <SplashPage />}
         <div className={`home-container overflow-hidden h-full ${startFade ? "hidden" : "custom-fade-in"}`}>
           {/* can't put any non three.js code within the canvas or it'll break */}
           <NavBar />
-          <Canvas className="item1 overflow-hidden" shadows>
+          <Canvas className="bg-gradient-to-b from-cyan-300 to-sky-400 item1 overflow-hidden" shadows>
+          {/* <Environment files="src/assets/sky.hdr" background /> */}
             <ambientLight intensity={0.8} color="#ffffff" />
             <directionalLight
               position={[10, 10, 5]}
@@ -157,7 +159,7 @@ function App() {
           <TextBoxContent clickedObjectId={clickedObject} />
           </div>
           {/* Bottom textbox on mobile */}
-          <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
+          <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/3 overflow-scroll rounded-t-lg">
             <TextBoxContent clickedObjectId={clickedObject} />
           </div>
         </div>
