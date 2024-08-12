@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" >
+<g transform="scale(1, -1)">
+<path d="M 50,0 
+         h -40 
+         a 10,10 0 0,0 -10,10 
+         v 20 
+         a 10,10 0 0,0 10,10 
+         h 40
+         l 10,15 
+         l 10,-15
+         h 40  
+         a 10,10 0 0,0 10,-10 
+         v -20 
+         a 10,10 0 0,0 -10,-10 
+         h -40 
+         z" />
+</svg>
+
+<!-- Legendary SVG visualizer, greatest find ever -->
+<!-- https://svg-path-visualizer.netlify.app/#M140%2020C73%2020%2020%2074%2020%20140c0%20135%20136%20170%20228%20303%2088-132%20229-173%20229-303%200-66-54-120-120-120-48%200-90%2028-109%2069-19-41-60-69-108-69z -->
