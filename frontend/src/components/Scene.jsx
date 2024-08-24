@@ -31,7 +31,7 @@ const Scene = ({ wizardHats, hoveredObject, clickedObject, handlePointerOver, ha
     outlinePass.edgeStrength = 3;
     outlinePass.edgeGlow = 0.5;
     outlinePass.edgeThickness = 1;
-    outlinePass.pulsePeriod = 1;
+    outlinePass.pulsePeriod = 2;
     outlinePass.visibleEdgeColor.set('#ffffff');
     outlinePass.hiddenEdgeColor.set('#000000');
 
