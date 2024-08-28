@@ -1,4 +1,4 @@
-This summarizes how the 3D objects and their interactions are handled within the app.
+# This summarizes how the 3D objects and their interactions are handled within the app.
 
 If you want to create interactive 3D objects that respond to user actions like hovering and clicking, you can use the following setup:
 const [hoveredObject, setHoveredObject] = useState(null);
