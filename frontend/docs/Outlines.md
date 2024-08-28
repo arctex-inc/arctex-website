@@ -17,6 +17,7 @@ const handleClick = (object) => {
 };
 
 You can then apply these event handlers to your 3D objects like so:
+
 <mesh
   rotation={[0, 1, 0]} // Rotation of the object
   onPointerOver={() => handlePointerOver('box1')} // Detects when the object is hovered
