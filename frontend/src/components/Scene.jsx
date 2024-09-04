@@ -8,7 +8,7 @@ import TextBubble from './TextBubble.jsx';
 
 extend({ EffectComposer, RenderPass, OutlinePass, ShaderPass });
 
-const Scene = ({ wizardHats, collegeAppAssist, gear,
+const Scene = ({ collegeAppAssist, gear,
   podium,
   shoppingBag,
   briefcase,

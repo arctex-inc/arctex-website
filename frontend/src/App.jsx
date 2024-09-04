@@ -44,7 +44,6 @@ function App() {
   setClickedObject(object);
 };
 
-  const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
   const { scene: collegeAppAssist } = useGLTF('./collegeAppAssist.glb');
   const { scene: gear } = useGLTF('./gear.glb');
   const { scene: podium } = useGLTF('./podium.glb');
@@ -55,12 +54,6 @@ function App() {
   // Traverse the GLTF scene and set castShadow and receiveShadow
   // used for 3d models with multiple parts?
   useEffect(() => {
-    wizardHats.traverse((child) => {
-      if (child.isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-    });
     collegeAppAssist.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
@@ -96,7 +89,7 @@ function App() {
         child.receiveShadow = true;
       }
     });
-  }, [wizardHats, collegeAppAssist, gear, briefcase, shoppingBag, podium, island]);
+  }, [collegeAppAssist, gear, briefcase, shoppingBag, podium, island]);
 
   useEffect(() => {
     if (showSplash) {
@@ -129,7 +122,6 @@ function App() {
         <NavBar onNavLinkClick={handleNavLinkClick}/>
         <Canvas className="bg-gradient-to-b from-cyan-300 to-sky-400 item1 overflow-hidden" shadows>
           <Scene
-            wizardHats={wizardHats}
             collegeAppAssist={collegeAppAssist}
             gear={gear}
             podium={podium}
