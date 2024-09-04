@@ -4,7 +4,7 @@ import logo from "../assets/NavBar-Logo-White-NoBG.png"
 
 import "../navbar.css"
 
-function NavBar() {
+const NavBar = ({ onNavLinkClick }) => {
     const [isMobileMenuOpen, setMobileMenu] = useState(false)
 
     function toggleMobileMenu() {
@@ -24,12 +24,33 @@ function NavBar() {
                     </NavLink>
 
                     <div className="nav-links-container">
-                        <NavLink exact to="/" className="nav-link">Home</NavLink>
-                        <NavLink exact to="/shopping" className="nav-link">Products</NavLink>
-                        <NavLink exact to="/" className="nav-link">Services</NavLink>
-                        <NavLink exact to="/contact" className="nav-link">Contact Us</NavLink>
+                        <button
+                            className="nav-link"
+                            onClick={() => onNavLinkClick('')}
+                        >
+                            About
+                        </button>
+                        <button
+                            className="nav-link"
+                            onClick={() => onNavLinkClick('shoppingBag')}
+                        >
+                            Products
+                        </button>
+                        <NavLink
+                            exact
+                            className="nav-link"
+                            onClick={() => onNavLinkClick('gear')}
+                        >
+                            Services
+                        </NavLink>
+                        <NavLink
+                            exact
+                            className="nav-link"
+                            onClick={() => onNavLinkClick('briefcase')}
+                        >
+                            Careers
+                        </NavLink>
                     </div>
-
                 </div>
             </div>
 

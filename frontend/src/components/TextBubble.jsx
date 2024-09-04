@@ -67,6 +67,7 @@ function TextBubble({ position, text }) {
       <Text
         position={[0, .125, 0.22]}
         fontSize={0.2}
+        fontWeight="bold"
         color="black"
         anchorX="center"
         anchorY="middle"

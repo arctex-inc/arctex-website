@@ -53,24 +53,22 @@ const Scene = ({ wizardHats, collegeAppAssist, gear,
 
   useFrame(() => {
 
-      const selectedObjects = [];
-      if (hoveredObject !== 'collegeAppAssist') {
-        selectedObjects.push(collegeAppAssist);
-      }
-      if (hoveredObject !== 'gear') {
-        selectedObjects.push(gear);
-      }
-      if (hoveredObject !== 'briefcase') {
-        selectedObjects.push(briefcase);
-      }
-      if (hoveredObject !== 'shoppingBag') {
-        selectedObjects.push(shoppingBag);
-      }
-      outlinePassRef.current.selectedObjects = selectedObjects;
-    
+    const selectedObjects = [];
+    if (hoveredObject !== 'collegeAppAssist') {
+      selectedObjects.push(collegeAppAssist);
+    }
+    if (hoveredObject !== 'gear') {
+      selectedObjects.push(gear);
+    }
+    if (hoveredObject !== 'briefcase') {
+      selectedObjects.push(briefcase);
+    }
+    if (hoveredObject !== 'shoppingBag') {
+      selectedObjects.push(shoppingBag);
+    }
+    outlinePassRef.current.selectedObjects = selectedObjects;
+
   }, [hoveredObject, collegeAppAssist, gear, briefcase, shoppingBag]);
-
-
 
   return (
     <>
@@ -89,7 +87,7 @@ const Scene = ({ wizardHats, collegeAppAssist, gear,
         shadow-camera-bottom={-10}
       />
       <hemisphereLight intensity={0.6} />
-      <PerspectiveCamera makeDefault fov={75} position={[-10, 10, 10]} rotation={[-1, 0, 0]} />
+      <PerspectiveCamera makeDefault fov={50} position={[0, 20, 20]} rotation={[-1, 0, 0]} />
 
 
       {/* "Building 1" with conditional white outline */}
@@ -106,87 +104,85 @@ const Scene = ({ wizardHats, collegeAppAssist, gear,
         <meshStandardMaterial color="orange" />
         {(hoveredObject === 'box1' || clickedObject === 'box1') && <Outlines color="white" thickness={1} />}
       </mesh> */}
-    
-        <primitive
-          object={collegeAppAssist}
-          scale={3.0}
-          position={[1.1, 2.2, -1.8]}
-          onPointerOver={() => handlePointerOver('collegeAppAssist')}
-          onPointerOut={handlePointerOut}
-          onClick={() => handleClick('collegeAppAssist')}
-        />
-        <TextBubble position={[1.1, 3.5, -1.8]} text={"CollegeAppAssist"} />
-     
 
-     
-        <primitive
-          object={gear}
-          scale={1.0}
-          position={[-5, 2, 2]}
-          onPointerOver={() => handlePointerOver('gear')}
-          onPointerOut={handlePointerOut}
-          onClick={() => handleClick('gear')}
-        />
-        <TextBubble position={[-5, 3.7, 2]} text={"Services"} />
-     
-        <primitive
-          object={briefcase}
-          scale={1.2}
-          position={[-3, 1.4, -2]}
-          onPointerOver={() => handlePointerOver('briefcase')}
-          onPointerOut={handlePointerOut}
-          onClick={() => handleClick('briefcase')}
-        />
-        <TextBubble position={[-3, 2.7, -2]} text={"Careers"} />
-     
-        <primitive
-          object={shoppingBag}
-          scale={1.5}
-          position={[4, 1.5, 2]}
-          onPointerOver={() => handlePointerOver('shoppingBag')}
-          onPointerOut={handlePointerOut}
-          onClick={() => handleClick('shoppingBag')}
-          receiveShadow
-          castShadow
-        />
-        <TextBubble position={[4, 3.5, 2]} text={"Products"} />
-      
+      <primitive
+        object={collegeAppAssist}
+        scale={3.0}
+        position={[-2.9, 2.2, -1.8]} // x position changed by -4
+        onPointerOver={() => handlePointerOver('collegeAppAssist')}
+        onPointerOut={handlePointerOut}
+        onClick={() => handleClick('collegeAppAssist')}
+      />
+      <TextBubble position={[-2.9, 3.5, -1.8]} text={"CollegeAppAssist"} />
+
+      <primitive
+        object={gear}
+        scale={1.0}
+        position={[-9, 2, 2.4]} // x position changed by -4
+        onPointerOver={() => handlePointerOver('gear')}
+        onPointerOut={handlePointerOut}
+        onClick={() => handleClick('gear')}
+      />
+      <TextBubble position={[-9, 3.7, 2.4]} text={"Services"} />
+
+      <primitive
+        object={briefcase}
+        scale={1.2}
+        position={[-7, 1.4, -2]} // x position changed by -4
+        onPointerOver={() => handlePointerOver('briefcase')}
+        onPointerOut={handlePointerOut}
+        onClick={() => handleClick('briefcase')}
+      />
+      <TextBubble position={[-7, 2.7, -2]} text={"Careers"} />
+
+      <primitive
+        object={shoppingBag}
+        scale={1.5}
+        position={[0, 1.5, 2]} // x position changed by -4
+        onPointerOver={() => handlePointerOver('shoppingBag')}
+        onPointerOut={handlePointerOut}
+        onClick={() => handleClick('shoppingBag')}
+        receiveShadow
+        castShadow
+      />
+      <TextBubble position={[0, 3.5, 2]} text={"Products"} />
 
       <primitive
         object={island}
         scale={0.25}
-        position={[0, -1, 0]}
+        position={[-4, -1, 0]} // x position changed by -4
         rotation={[0, 100, 0]}
         receiveShadow
         castShadow
       />
 
-      {/* podiums. if you want multiple of same objs, need to use .clone() */}
+      {/* podiums */}
       <primitive
         object={podium.clone()}
         scale={1.0}
-        position={[-5, 0, 2]}
+        position={[-9, -.30, 2]} // x position changed by -4
       />
       <primitive
         object={podium.clone()}
         scale={1.0}
-        position={[-3, 0, -2]}
+        position={[-7, -.30, -2]} // x position changed by -4
       />
       <primitive
         object={podium.clone()}
         scale={1.0}
-        position={[1, 0, -2]}
+        position={[-3, -.30, -2]} // x position changed by -4
       />
       <primitive
         object={podium.clone()}
         scale={1.0}
-        position={[4, 0, 2]}
+        position={[0, -.30, 2]} // x position changed by -4
       />
+
 
 
       <MapControls
         minDistance={5}
-        maxDistance={12}
+        maxDistance={17}
         minAzimuthAngle={0}
         maxAzimuthAngle={0}
         minPolarAngle={Math.PI / 4}

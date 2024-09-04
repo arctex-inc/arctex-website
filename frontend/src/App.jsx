@@ -39,6 +39,11 @@ function App() {
     }
   };
 
+ // Function to handle NavLink clicks
+ const handleNavLinkClick = (object) => {
+  setClickedObject(object);
+};
+
   const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
   const { scene: collegeAppAssist } = useGLTF('./collegeAppAssist.glb');
   const { scene: gear } = useGLTF('./gear.glb');
@@ -121,7 +126,7 @@ function App() {
     <div className='h-full overflow-hidden'>
       {showSplash && <SplashPage />}
       <div className={`home-container overflow-hidden h-full ${startFade ? "hidden custom-fade-in" : ""}`}>
-        <NavBar />
+        <NavBar onNavLinkClick={handleNavLinkClick}/>
         <Canvas className="bg-gradient-to-b from-cyan-300 to-sky-400 item1 overflow-hidden" shadows>
           <Scene
             wizardHats={wizardHats}
