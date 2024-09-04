@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleClick = (objectId) => {
-    if (['box1', 'box2', 'box3'].includes(objectId)) {
+    if (['gear', 'briefcase', 'collegeAppAssist', 'shoppingBag'].includes(objectId)) {
       setClickedObject(clickedObject === objectId ? null : objectId);
 
       if (mobileTextBoxRef.current) {
@@ -40,8 +40,15 @@ function App() {
   };
 
   const { scene: wizardHats } = useGLTF('./wizard_hats/scene.gltf');
+  const { scene: collegeAppAssist } = useGLTF('./collegeAppAssist.glb');
+  const { scene: gear } = useGLTF('./gear.glb');
+  const { scene: podium } = useGLTF('./podium.glb');
+  const { scene: shoppingBag } = useGLTF('./shoppingBag.glb');
+  const { scene: briefcase } = useGLTF('./briefcase.glb');
+  const { scene: island } = useGLTF('./island.glb');
 
   // Traverse the GLTF scene and set castShadow and receiveShadow
+  // used for 3d models with multiple parts?
   useEffect(() => {
     wizardHats.traverse((child) => {
       if (child.isMesh) {
@@ -49,7 +56,42 @@ function App() {
         child.receiveShadow = true;
       }
     });
-  }, [wizardHats]);
+    collegeAppAssist.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    gear.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    briefcase.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    shoppingBag.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    podium.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+    island.traverse((child) => {
+      if (child.isMesh) {
+        child.receiveShadow = true;
+      }
+    });
+  }, [wizardHats, collegeAppAssist, gear, briefcase, shoppingBag, podium, island]);
 
   useEffect(() => {
     if (showSplash) {
@@ -83,6 +125,13 @@ function App() {
         <Canvas className="bg-gradient-to-b from-cyan-300 to-sky-400 item1 overflow-hidden" shadows>
           <Scene
             wizardHats={wizardHats}
+            collegeAppAssist={collegeAppAssist}
+            gear={gear}
+            podium={podium}
+            shoppingBag={shoppingBag}
+            briefcase={briefcase}
+            island={island}
+
             hoveredObject={hoveredObject}
             clickedObject={clickedObject}
             handlePointerOver={handlePointerOver}
