@@ -141,7 +141,7 @@ function App() {
           <TextBoxContent clickedObjectId={clickedObject} />
         </div>
         {/* Bottom textbox on mobile */}
-        <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/4 overflow-scroll rounded-t-lg">
+        <div ref={mobileTextBoxRef} className="hide-scrollbar lg:hidden absolute bottom-0 inset-x-0 bg-white h-1/2 overflow-scroll rounded-t-lg">
           <TextBoxContent clickedObjectId={clickedObject} />
         </div>
       </div>
