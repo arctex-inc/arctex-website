@@ -49,7 +49,7 @@ function SplashPage() {
     setTimeout(() => {
       setHasLoaded(true);
     }, 3000); //times the start of SPLASH PAGE FADE OUT (Set to 3000)
-  }, []);
+  }, []); 
 
   return (
 
