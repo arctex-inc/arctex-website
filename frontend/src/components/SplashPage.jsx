@@ -24,10 +24,6 @@ const logoVariants = {
   },
 };
 
-// ^^ "Arctex" Logo Fill Colors:
-// Arctex blue: rgba(28, 208, 255, 1)
-// White: rgba(255, 255, 255, 1)
-
 const tagVariants = {
   hidden: {
     opacity: 0,
@@ -48,23 +44,21 @@ function SplashPage() {
   useEffect(() => {
     setTimeout(() => {
       setHasLoaded(true);
-    }, 3000); //times the start of SPLASH PAGE FADE OUT (Set to 3000)
+    }, 3000);
   }, []); 
 
   return (
-
-<div className={`splash-container ${hasLoaded ? "custom-fade-out" : ""}`}>
+    <div className={`splash-container ${hasLoaded ? "custom-fade-out" : ""}`}>
       <div className="loader-container">
         
-        <motion.svg // Logo SVG
+        <motion.svg 
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 250 297"
-          // Changed from 0 0 210 297 to for scalability to phone displays
           height="50%"
           width="100%"
           initial="hidden"
           animate="visible"
-          style={{ marginRight: "3.5%" }}
+          className="absolute left-1/2 -mt-12 transform -translate-x-1/2" // Adjust margins based on screen size
         >
           <motion.path
             d={logoPath}
@@ -73,26 +67,23 @@ function SplashPage() {
             strokeWidth="3"
             variants={logoVariants}
           />
-        </motion.svg> {/* Logo SVG end */}
+        </motion.svg>
 
-        <motion.svg // Tagline SVG
+        <motion.svg 
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 250 297"
-          // Changed from 0 0 210 297 to for scalability to phone displays
           height="50%"
           width="100%"
           initial="hidden"
           animate="visible"
-          style={{ marginTop: "-22%", marginRight: "1.5%" }}
+          className="absolute left-1/2 transform -translate-x-1/2 mt-2 text-center" // Center the tagline
         >
           <motion.path
             d={tagPath}
             fill="white"
-            // stroke="white"
-            // strokeWidth="1.25"
             variants={tagVariants}
           />
-        </motion.svg> {/* Tag SVG end */}
+        </motion.svg> 
       </div>
     </div>
   )

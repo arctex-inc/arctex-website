@@ -7,9 +7,6 @@
   width: 100%;
   position: fixed;
   background-color: black;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 100%;
 }
 
 .splash-container {
@@ -22,14 +19,44 @@
   z-index: 101;
 }
 
+/* Large screens */
+@media (min-width: 1024px) {
+  .arctex-logo {
+    font-size: 6.5rem;
+    margin-top: -5rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 1023px) {
+  .arctex-logo {
+    font-size: 5rem;
+    margin-top: 0; /* Change this to 0 to avoid issues */
+  }
+
+  .tagline {
+    position: absolute; /* New */
+    top: 40%; /* Adjust this value as needed */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it */
+    font-size: 1.2rem; /* Adjust tagline size for better visibility */
+    text-align: center;
+    margin-top: 0; /* Make sure this is not causing issues */
+  }
+}
+
 /* SplashPage fades out to black */
 @keyframes custom-fade-out {
-from { opacity: 1; }
-to { opacity: 0; }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 .custom-fade-out {
-animation-name: custom-fade-out;
-animation-duration: 2s;
+  animation-name: custom-fade-out;
+  animation-duration: 2s; /* Keep this duration as needed */
 }
-
