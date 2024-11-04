@@ -13,6 +13,9 @@ const TextboxContent = ({ clickedObjectId }) => {
         <a target="_blank" className='text-md text-blue-500' href="https://app.joinhandshake.com/e/983808">app.joinhandshake.com/e/983808</a>
         <p className='pt-5'>Our LinkedIn:</p>
         <a target="_blank" className='text-md text-blue-500' href="https://www.linkedin.com/company/arctex-inc">linkedin.com/company/arctex-inc</a>
+
+        <p className='pt-8'>Sign up on our interest form here:</p>
+      <a target="_blank" className='text-md pb-5 md:text-md text-blue-500' href="/careers">arctexsoftware.com/careers</a>
       </div>;
     case "collegeAppAssist":
       return <div className="md:p-5 p-3 px-6 md:px-8">
