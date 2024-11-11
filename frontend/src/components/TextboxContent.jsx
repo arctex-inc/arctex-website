@@ -15,7 +15,9 @@ const TextboxContent = ({ clickedObjectId }) => {
         <a target="_blank" className='text-md text-blue-500' href="https://www.linkedin.com/company/arctex-inc">linkedin.com/company/arctex-inc</a>
 
         <p className='pt-8'>Sign up on our interest form here:</p>
-      <a target="_blank" className='text-md pb-5 md:text-md text-blue-500' href="/careers">arctexsoftware.com/careers</a>
+        <div className="w-full h-screen flex justify-center items-center pt-4">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSddnFLLAnt9jbMA69RbRo8lqVmTwaoIakNFY0-MuLQNxkOhNw/viewform?embedded=true" width="110%" height="100%" frameborder="0" marginwidth="0">Loading…</iframe>
+      </div>
       </div>;
     case "collegeAppAssist":
       return <div className="md:p-5 p-3 px-6 md:px-8">
