@@ -54,16 +54,16 @@ const Scene = ({ collegeAppAssist, gear,
   useFrame(() => {
 
     const selectedObjects = [];
-    if (hoveredObject !== 'collegeAppAssist') {
+    if (hoveredObject === 'collegeAppAssist' || clickedObject === 'collegeAppAssist') {
       selectedObjects.push(collegeAppAssist);
     }
-    if (hoveredObject !== 'gear') {
+    if (hoveredObject === 'gear' || clickedObject === 'gear') {
       selectedObjects.push(gear);
     }
-    if (hoveredObject !== 'briefcase') {
+    if (hoveredObject === 'briefcase' || clickedObject === 'briefcase') {
       selectedObjects.push(briefcase);
     }
-    if (hoveredObject !== 'shoppingBag') {
+    if (hoveredObject === 'shoppingBag' || clickedObject === 'shoppingBag') {
       selectedObjects.push(shoppingBag);
     }
     outlinePassRef.current.selectedObjects = selectedObjects;
@@ -186,7 +186,8 @@ const Scene = ({ collegeAppAssist, gear,
         minAzimuthAngle={0}
         maxAzimuthAngle={0}
         minPolarAngle={Math.PI / 4}
-        maxPolarAngle={Math.PI / 4}
+        maxP
+        olarAngle={Math.PI / 4}
       />
     </>
   );

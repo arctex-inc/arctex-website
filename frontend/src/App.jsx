@@ -10,6 +10,32 @@ import Scene from './components/Scene.jsx';
 import * as THREE from 'three';
 import { useGLTF } from '@react-three/drei';
 
+/**
+ * App component is the main entry point of the application. 
+ * It manages the application state, including hovered and clicked 3D objects,
+ * splash screen visibility, and fade animations. It uses Three.js for rendering
+ * 3D scenes and manages navigation link interactions.
+ * 
+ * State:
+ * - hoveredObject: Tracks the object currently hovered by the user.
+ * - clickedObject: Tracks the object currently clicked by the user.
+ * - showSplash: Determines whether the splash screen should be displayed.
+ * - startFade: Controls the fade-in effect of the home page.
+ * 
+ * Refs:
+ * - mobileTextBoxRef: Reference to the mobile text box container.
+ * - desktopTextBoxRef: Reference to the desktop text box container.
+ * 
+ * Effects:
+ * - GLTF model initialization and shadow settings.
+ * - Splash screen and background color fade timing.
+ * 
+ * Handlers:
+ * - handlePointerOver: Sets the hovered object.
+ * - handlePointerOut: Resets the hovered object.
+ * - handleClick: Updates the clicked object and resets scroll position.
+ * - handleNavLinkClick: Updates the clicked object based on navigation link interaction.
+ */
 function App() {
   const [hoveredObject, setHoveredObject] = useState(null);
   const [clickedObject, setClickedObject] = useState(null);

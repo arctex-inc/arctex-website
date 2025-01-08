@@ -5,9 +5,14 @@ const TextboxContent = ({ clickedObjectId }) => {
   switch (clickedObjectId) {
     case "briefcase":
       return <div className="md:p-5 p-3 px-6 md:px-8">
-        <h4 className="text-center text-2xl font-bold p-3 pb-6 md:text-3xl">Careers</h4>
-        <p className='text-md pb-5'>Whether you're a developer, marketer, designer, or product manager, there's a place for you here at Arctex. We are always on the lookout for passionate, innovative, and driven individuals to help us make an impact on the world.
-        </p>
+        <h4 className="text-center text-2xl font-bold text-slate-500 p-3 pb-6 md:text-3xl">Careers</h4>
+        <div className = "text-md text-xl pb-5">
+        <span>Whether you're a </span> 
+        <span className='text-gray-500 font-bold'>developer, marketer, designer, or product manager, </span>
+        <span>there's a place for you here at Arctex. We are always on the lookout for passionate, innovative, and driven individuals to help us make an impact on the world.</span>
+        </div>
+        
+        
         <p className='text-md pb-5'>Interested in joining us? We post jobs on LinkedIn and Handshake.</p>
         <p>Our Handshake:</p>
         <a target="_blank" className='text-md text-blue-500' href="https://app.joinhandshake.com/e/983808">app.joinhandshake.com/e/983808</a>
@@ -46,7 +51,7 @@ const TextboxContent = ({ clickedObjectId }) => {
       <a target="_blank" className='text-md pb-5 md:text-md text-blue-500' href="https://cal.com/chrisho/contract">cal.com/chrisho/contract</a>
     </div>;
     case "gear":
-      return <div className="md:p-5 p-3 px-6 md:px-8">
+      return <div className="max-xl:flex-col max-container md:p-5 p-3 px-6 md:px-8">
       <h4 className="text-center text-2xl font-bold p-3 pb-6 md:text-3xl">Services</h4>
       <p className='text-md pb-5'>Arctex offers contract software development services for organizations wanting custom software solutions.
       </p>
