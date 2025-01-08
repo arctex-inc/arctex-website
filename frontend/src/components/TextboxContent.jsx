@@ -24,7 +24,7 @@ const TextboxContent = ({ clickedObjectId }) => {
       <h4 className="text-center text-2xl font-bold p-3 pb-6 md:text-3xl">CollegeAppAssist</h4>
       <p className='text-md pb-5 md:text-md'>CollegeAppAssist is a website + Chrome extension to help students with their college applications & scholarships. Students are able to ask questions, analyze their answers on the application, and automate filling in information.
       </p>
-      <p>Are you a high school student wanting help on your college applications? Try out it today!</p>
+      <p>Are you a high school student wanting help on your college applications? Try it out today!</p>
       <a target="_blank" className='text-md text-blue-500' href="https://www.collegeappassist.com">collegeappassist.com</a>
       <p className='pt-5'>Are you a school administrator or counselor wanting to utilize CollegeAppAssist at your school? Schedule a meeting with us.</p>
       <a target="_blank" className='text-md pb-5 text-blue-500' href="https://cal.com/chrisho/schools">cal.com/chrisho/schools</a>
@@ -37,10 +37,10 @@ const TextboxContent = ({ clickedObjectId }) => {
       {/* <p className='text-md pt-5'>Buy it now:</p> */}
       {/* <a target="_blank" className='text-md text-blue-500' href=""></a> */}
 
-      <p className='text-md pt-5'>Are you a student navigating the complex college application process? Meet CollegeAppAssist—your personal digital counselor. Designed to streamline the entire application journey, CollegeAppAssist provides tailored advice, automates filling in information, and 24/7 real-time assistance to help you present your best self to colleges and universities.
+      <p className='text-md pt-5'>Are you a student navigating the complex college application process? CollegeAppAssist streamlines the entire application journey, automatically filling in repetitive information on applications & provides real-time assistance to help you present your best self to colleges and universities.
       </p>
-      <p className='text-md pt-5'>Try out it today!</p>
-      <a target="_blank" className='text-md text-blue-500' href="https://www.linkedin.com/company/arctex-inc">collegeappassist.com</a>
+      <p className='text-md pt-5'>Try it out today!</p>
+      <a target="_blank" className='text-md text-blue-500' href="https://www.collegeappassist.co">collegeappassist.com</a>
 
       <p className='text-md pt-5'>Want a custom software solution for your business? Arctex offers contract software development services too. Schedule a meeting with us to learn more!</p>
       <a target="_blank" className='text-md pb-5 md:text-md text-blue-500' href="https://cal.com/chrisho/contract">cal.com/chrisho/contract</a>
